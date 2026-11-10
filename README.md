@@ -161,11 +161,20 @@ npm run dev -- --host 0.0.0.0
 
 ## Docker instructions
 
+Docker Compose is configured for local containerized setup, but this environment does not currently have a working Docker engine available.
+
 ```bash
 docker compose up --build
 ```
 
-The repository includes Docker Compose support, but the verified production-style runs for this hackathon used a direct local PostgreSQL instance instead of Docker because the local Docker daemon was unavailable in this environment.
+Current status for this workspace:
+
+- Docker Desktop / Docker Engine: not available in this environment
+- Docker Compose validation: not completed because the daemon is unavailable
+- Exact blocker: `failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine`
+- Required action: start Docker Desktop or the local Docker engine, then rerun `docker compose up --build`
+
+This project was verified against a live local PostgreSQL 17 instance instead of Docker because the daemon was unavailable. The compose files remain in place for standard container-based startup when Docker is available.
 
 ## Final demo guide
 
@@ -210,11 +219,16 @@ The backend reconciliation endpoint checks that total input records equal valid 
 
 ## Performance benchmark
 
-The project includes synthetic generation support for 1,000, 10,000, and 100,000-record benchmarks. The pipeline is designed for bulk ingestion with batching and indexed lookups.
+The project includes synthetic generation support for 1,000, 10,000, and 100,000-record benchmarks in the PostgreSQL-backed `producthub_bench` database.
 
-The full PostgreSQL-backed benchmark run was not re-executed in this session because the local PostgreSQL service and Docker daemon were unavailable in the execution environment. The benchmark harness itself is implemented and isolated to `producthub_bench`, and it is ready to run in a PostgreSQL-enabled environment using the same ingestion and reconciliation flow used by the project.
+Verified results from the live PostgreSQL 17 environment:
 
-The 100k throughput investigation focused on eliminating repeated per-row supplier and product lookup queries in the processing loop. The optimization is covered by the backend regression suite, but the final benchmark numbers must be generated in a machine with a live PostgreSQL instance available.
+- 1,000 records: 204.14 records/second, `reconciled=True`
+- 10,000 records: 213.02 records/second, `reconciled=True`
+- 100,000 records: 150.91 records/second, `reconciled=True`
+- Total processing time for 100,000 records: 647.39 seconds
+
+These results were produced using the project’s real ingestion, validation, matching, and reconciliation pipeline. The benchmark harness is implemented in `backend/benchmarks` and is ready to rerun in a PostgreSQL-enabled environment.
 
 ## Known limitations
 

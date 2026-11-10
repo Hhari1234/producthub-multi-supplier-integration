@@ -1,6 +1,30 @@
 # ProductHub
 
-ProductHub is a multi-supplier product data integration platform that ingests supplier feeds, validates records, standardizes schemas, resolves duplicates, and publishes a unified product catalogue into PostgreSQL.
+### Multi-Supplier Product Data Integration & Standardization Platform
+
+"Transform inconsistent product feeds from multiple suppliers into one unified, standardized and traceable product catalogue."
+
+## 100,000 Records Successfully Processed and Reconciled
+
+| Metric | Value |
+| --- | ---: |
+| Dataset size | 100,000 records |
+| Processing time | 647.39 seconds |
+| Throughput | 150.91 records/second |
+| Reconciliation | Successful |
+
+## 🚀 Project Highlights
+
+- Multi-supplier ingestion: CSV and JSON feeds.
+- Data standardization: convert different supplier schemas into a canonical product structure.
+- Product matching: identify matching products across suppliers using GTIN and available product attributes.
+- Conflict resolution: resolve conflicting supplier values using deterministic rules.
+- Unified catalogue: publish standardized products.
+- Data quality: identify invalid and duplicate records.
+- Traceability: preserve original supplier payloads and source mappings.
+- Reconciliation: track input, valid, rejected and processed records.
+
+ProductHub solves a common supplier-data problem: each vendor delivers product information in a different shape, naming convention, and quality standard. The platform ingests those feeds, validates and standardizes them, matches overlapping products, resolves conflicts, and publishes one reliable product catalogue with full traceability back to the source.
 
 ## Business problem
 
@@ -217,18 +241,34 @@ The dashboard shows real backend metrics after ingestion and processing. Example
 
 The backend reconciliation endpoint checks that total input records equal valid plus rejected records and that each supplier mapping points to an existing product.
 
+## Performance & Scalability
+
+The project includes synthetic generation support for 1,000, 10,000, and 100,000-record PostgreSQL benchmarks.
+
+| Dataset | Throughput | Status |
+| --- | ---: | --- |
+| 1K records | 204.14 records/sec | Completed |
+| 10K records | 213.02 records/sec | Completed |
+| 100K records | 150.91 records/sec | Completed |
+
+- 100K processing time: 647.39 seconds
+- Reconciliation: successful for all three benchmark runs
+
+Performance was improved through batch inserts, reduced repeated queries, and fewer unnecessary database flushes during the processing pipeline.
+
+## Application Screenshots
+
+No screenshots are currently committed in the repository under a `screenshots/` directory, so there are no valid relative image links to display at this time.
+
+When screenshots are added, they should be placed in a `screenshots/` folder and referenced as relative paths such as:
+
+```markdown
+![Dashboard](screenshots/dashboard.png)
+```
+
 ## Performance benchmark
 
-The project includes synthetic generation support for 1,000, 10,000, and 100,000-record benchmarks in the PostgreSQL-backed `producthub_bench` database.
-
-Verified results from the live PostgreSQL 17 environment:
-
-- 1,000 records: 204.14 records/second, `reconciled=True`
-- 10,000 records: 213.02 records/second, `reconciled=True`
-- 100,000 records: 150.91 records/second, `reconciled=True`
-- Total processing time for 100,000 records: 647.39 seconds
-
-These results were produced using the project’s real ingestion, validation, matching, and reconciliation pipeline. The benchmark harness is implemented in `backend/benchmarks` and is ready to rerun in a PostgreSQL-enabled environment.
+These benchmark results were produced using the project’s real ingestion, validation, matching, and reconciliation pipeline. The benchmark harness is implemented in `backend/benchmarks` and is ready to rerun in a PostgreSQL-enabled environment.
 
 ## Known limitations
 

@@ -121,4 +121,6 @@ def ingest_supplier_file(db: Session, supplier_id: int, file_obj, filename: str)
     supplier.total_imported_records += inserted
     supplier.last_ingestion_at = datetime.now(timezone.utc)
     db.commit()
-    return {"run_id": run_id, "imported_records": inserted, "supplier": supplier.supplier_code}
+
+    supplier_code = db.query(Supplier.supplier_code).filter(Supplier.id == supplier_id).scalar()
+    return {"run_id": run_id, "imported_records": inserted, "supplier": supplier_code or supplier.supplier_code}

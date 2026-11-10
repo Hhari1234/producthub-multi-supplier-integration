@@ -185,20 +185,19 @@ npm run dev -- --host 0.0.0.0
 
 ## Docker instructions
 
-Docker Compose is configured for local containerized setup, but this environment does not currently have a working Docker engine available.
+Docker Compose is configured for local containerized startup and was verified successfully in this workspace.
 
 ```bash
-docker compose up --build
+docker compose up --build -d --wait
 ```
 
-Current status for this workspace:
+Verified runtime ports:
 
-- Docker Desktop / Docker Engine: not available in this environment
-- Docker Compose validation: not completed because the daemon is unavailable
-- Exact blocker: `failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine`
-- Required action: start Docker Desktop or the local Docker engine, then rerun `docker compose up --build`
+- PostgreSQL: `5433` (host) -> `5432` (container)
+- Backend API: `8000`
+- Frontend UI: `4173`
 
-This project was verified against a live local PostgreSQL 17 instance instead of Docker because the daemon was unavailable. The compose files remain in place for standard container-based startup when Docker is available.
+The stack uses PostgreSQL 17 and the FastAPI app is served at `http://localhost:8000`, while the Vite dashboard is available at `http://localhost:4173`.
 
 ## Final demo guide
 
@@ -258,13 +257,15 @@ Performance was improved through batch inserts, reduced repeated queries, and fe
 
 ## Application Screenshots
 
-No screenshots are currently committed in the repository under a `screenshots/` directory, so there are no valid relative image links to display at this time.
-
-When screenshots are added, they should be placed in a `screenshots/` folder and referenced as relative paths such as:
-
-```markdown
-![Dashboard](screenshots/dashboard.png)
-```
+![Dashboard](screenshots/01-dashboard.png)
+![Supplier Management](screenshots/02-supplier-management.png)
+![Supplier A Upload](screenshots/03-supplier-a-upload.png)
+![Supplier B Upload](screenshots/03-supplier-b-upload.png)
+![Supplier C Upload](screenshots/03-supplier-c-upload.png)
+![Unified Product Catalogue](screenshots/04-unified-product-catalogue.png)
+![Data Quality Rejects](screenshots/05-data-quality-rejects.png)
+![Pipeline Execution History](screenshots/06-pipeline-execution-history.png)
+![Reports and Reconciliation](screenshots/07-reports-reconciliation.png)
 
 ## Performance benchmark
 

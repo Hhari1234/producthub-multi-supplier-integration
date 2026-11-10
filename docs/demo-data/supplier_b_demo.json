@@ -1,0 +1,7 @@
+[
+  {"sku":"B-100","name":"Alpha Phone","manufacturer":"Acme","selling_price":"269.99","product_type":"smartphone","quantity":"30","last_modified":"2026-01-03T11:00:00","currency":"USD","gtin":"GTIN-ALPHA"},
+  {"sku":"B-101","name":"Audio Bud","manufacturer":"Acme","selling_price":"89.99","product_type":"headphones","quantity":"45","last_modified":"2026-02-04T15:00:00","currency":"USD","gtin":"GTIN-BUD"},
+  {"sku":"B-200","name":"Office Chair","manufacturer":"NorthPeak","selling_price":"175.00","product_type":"accessory","quantity":"19","last_modified":"2026-02-05T10:00:00","currency":"USD","gtin":"GTIN-CHAIR"},
+  {"sku":"B-300","name":"Gateway Monitor","manufacturer":"Acme","selling_price":"219.00","product_type":"electronics","quantity":"11","last_modified":"2026-02-08T16:00:00","currency":"USD","gtin":"GTIN-MONITOR"},
+  {"sku":"B-999","name":"Broken Item","manufacturer":"Acme","selling_price":"-2","product_type":"smartphone","quantity":"-1","last_modified":"2026-02-01T10:00:00","currency":"USD"}
+]

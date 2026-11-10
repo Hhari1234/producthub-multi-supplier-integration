@@ -1,0 +1,3 @@
+product_id,product_name,brand,price,category,stock,updated_at
+A201,Alpha Phone,Acme,299.99,Smartphones,25,2026-01-01 10:00:00
+A202,Beta Laptop,Acme,799.00,Laptops,12,2026-01-02 09:00:00

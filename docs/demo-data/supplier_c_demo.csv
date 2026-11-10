@@ -1,0 +1,6 @@
+item_code,title,brand_name,cost,department,available_stock,modified_at,currency,gtin
+C-100,Alpha Phone,Acme,279.99,smartphones,18,2026-01-04 09:00:00,USD,GTIN-ALPHA
+C-101,Audio Bud,Acme,89.99,headphones,45,2026-02-04 15:00:00,USD,GTIN-BUD
+C-200,Office Chair,NorthPeak,179.00,accessories,20,2026-02-05 10:00:00,USD,GTIN-CHAIR
+C-300,Gateway Monitor,Acme,199.00,electronics,12,2026-02-08 16:00:00,USD,GTIN-MONITOR
+BAD-500,Missing Brand,,35,Accessories,2,2026-02-01 09:00:00,USD,GTIN-MISSING

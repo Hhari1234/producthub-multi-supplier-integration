@@ -1,0 +1,1 @@
+"""ProductHub backend package."""

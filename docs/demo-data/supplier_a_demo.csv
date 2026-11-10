@@ -1,0 +1,8 @@
+product_id,product_name,brand,price,category,stock,updated_at,currency
+A-100,Alpha Phone,Acme,299.99,Smartphones,25,2026-01-01 10:00:00,USD
+A-200,Beta Laptop,Acme,799.00,Laptops,12,2026-01-02 09:00:00,USD
+A-300,Office Chair,NorthPeak,189.00,Accessories,24,2026-02-03 14:00:00,USD
+A-400,Audio Bud,Acme,129.99,Headphones,42,2026-02-04 15:00:00,USD
+A-200,Beta Laptop,Acme,850.00,Laptops,15,2026-01-03 09:00:00,USD
+BAD-100,,Acme,-10,Smartphones,-5,2026-01-01 10:00:00,USD
+BAD-101,Unknown Gadget,Acme,35.00,UnknownCategory,3,2026-01-05 11:00:00,USD
